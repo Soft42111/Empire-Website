@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import './App.css';
 import { 
   Mail, 
   Twitter, 
@@ -547,13 +548,13 @@ const Index = () => {
                 </div>
                 <div className="flex flex-wrap gap-6 justify-center">
                   <a 
-                    href="https://twitter.com/Empire2030" 
+                    href="https://x.com/Empirepro_" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 text-lg hover:text-primary transition-colors"
                   >
                     <Twitter className="h-5 w-5" />
-                    @Empire2030
+                    @Empirepro_
                   </a>
                   <a 
                     href="https://t.me/Empirepro-" 
@@ -581,12 +582,22 @@ const Index = () => {
 
       {/* Footer */}
       <footer className="py-8 text-center border-t border-primary/20">
-        <p className="text-muted-foreground">
-          © 2024 Empire. Crafting the future of Web3 communities.
-        </p>
-      </footer>
+  <p className="text-muted-foreground">
+    © 2025 Empire. Made by
+    <a
+      href="https://basitresume.pro"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="font-bold ml-1"
+    >
+      <span className="bg-gradient-to-r from-[#00fff7] to-[#00d9ff] bg-clip-text text-transparent drop-shadow-[0_0_6px_#00fff7]">
+        Basit
+      </span>
+    </a> with ❤️. All rights reserved.
+  </p>
+</footer>
     </div>
   );
-};
+}
 
 export default Index;

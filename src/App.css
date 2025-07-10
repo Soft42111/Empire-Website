@@ -40,3 +40,10 @@
 .read-the-docs {
   color: #888;
 }
+.basit {
+  background: linear-gradient(90deg, #00fff7, #00d9ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+}
