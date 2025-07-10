@@ -1,0 +1,229 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 220 26% 8%;
+    --foreground: 220 15% 95%;
+
+    --card: 220 20% 10%;
+    --card-foreground: 220 15% 95%;
+
+    --popover: 220 20% 10%;
+    --popover-foreground: 220 15% 95%;
+
+    --primary: 260 100% 60%;
+    --primary-foreground: 220 15% 95%;
+
+    --secondary: 220 30% 15%;
+    --secondary-foreground: 220 15% 95%;
+
+    --muted: 220 25% 12%;
+    --muted-foreground: 220 10% 60%;
+
+    --accent: 260 100% 50%;
+    --accent-foreground: 220 15% 95%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 25% 20%;
+    --input: 220 25% 15%;
+    --ring: 260 100% 60%;
+
+    --radius: 0.75rem;
+
+    /* Custom Web3 colors */
+    --electric-blue: 210 100% 50%;
+    --cyber-purple: 260 100% 60%;
+    --deep-blue: 220 50% 20%;
+    --neon-glow: 260 100% 70%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(220 26% 8%), hsl(260 100% 20%));
+    --gradient-accent: linear-gradient(135deg, hsl(210 100% 50%), hsl(260 100% 60%));
+    --gradient-card: linear-gradient(135deg, hsl(220 20% 10%), hsl(220 30% 12%));
+
+    /* Shadows */
+    --shadow-glow: 0 0 30px hsl(260 100% 60% / 0.3);
+    --shadow-card: 0 10px 30px -5px hsl(220 26% 8% / 0.8);
+
+    /* Animations */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="%23a855f7" opacity="0.8"/><circle cx="10" cy="10" r="3" fill="%23ffffff"/></svg>'), auto;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background: var(--gradient-primary);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  /* Custom cursor for interactive elements */
+  a, button, [role="button"] {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="%23a855f7" opacity="0.9"/><circle cx="12" cy="12" r="4" fill="%23ffffff"/></svg>'), pointer;
+  }
+}
+
+@layer components {
+  /* Floating particles animation */
+  .floating-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .particle {
+    position: absolute;
+    background: radial-gradient(circle, hsl(var(--cyber-purple)) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .particle:nth-child(1) { width: 4px; height: 4px; left: 10%; animation-delay: 0s; }
+  .particle:nth-child(2) { width: 6px; height: 6px; left: 20%; animation-delay: 1s; }
+  .particle:nth-child(3) { width: 3px; height: 3px; left: 30%; animation-delay: 2s; }
+  .particle:nth-child(4) { width: 5px; height: 5px; left: 40%; animation-delay: 3s; }
+  .particle:nth-child(5) { width: 4px; height: 4px; left: 50%; animation-delay: 1.5s; }
+  .particle:nth-child(6) { width: 6px; height: 6px; left: 60%; animation-delay: 0.5s; }
+  .particle:nth-child(7) { width: 3px; height: 3px; left: 70%; animation-delay: 2.5s; }
+  .particle:nth-child(8) { width: 5px; height: 5px; left: 80%; animation-delay: 4s; }
+  .particle:nth-child(9) { width: 4px; height: 4px; left: 90%; animation-delay: 3.5s; }
+
+  /* Glowing text effect */
+  .glow-text {
+    text-shadow: 0 0 10px hsl(var(--cyber-purple) / 0.8),
+                 0 0 20px hsl(var(--cyber-purple) / 0.6),
+                 0 0 30px hsl(var(--cyber-purple) / 0.4);
+  }
+
+  /* Card hover effects */
+  .card-hover {
+    transition: var(--transition-smooth);
+  }
+
+  .card-hover:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--shadow-glow), var(--shadow-card);
+  }
+
+  /* Skill bar animation */
+  .skill-bar {
+    background: linear-gradient(90deg, 
+      hsl(var(--electric-blue)), 
+      hsl(var(--cyber-purple))
+    );
+    animation: skill-glow 2s ease-in-out infinite alternate;
+  }
+
+  /* Button gradient animation */
+  .btn-gradient {
+    background: var(--gradient-accent);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-gradient::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+      transparent, 
+      hsl(var(--neon-glow) / 0.3), 
+      transparent
+    );
+    transition: left 0.6s ease;
+  }
+
+  .btn-gradient:hover::before {
+    left: 100%;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-30px) rotate(120deg); }
+  66% { transform: translateY(-60px) rotate(240deg); }
+}
+
+@keyframes skill-glow {
+  0% { box-shadow: 0 0 5px hsl(var(--cyber-purple) / 0.5); }
+  100% { box-shadow: 0 0 20px hsl(var(--cyber-purple) / 0.8), 0 0 30px hsl(var(--electric-blue) / 0.4); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 5px hsl(var(--cyber-purple) / 0.4); }
+  50% { box-shadow: 0 0 30px hsl(var(--cyber-purple) / 0.8), 0 0 40px hsl(var(--electric-blue) / 0.6); }
+}
