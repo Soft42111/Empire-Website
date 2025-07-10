@@ -41,6 +41,7 @@
   color: #888;
 }
 .basit {
+  font-size: 1.5em;
   background: linear-gradient(90deg, #00fff7, #00d9ff);
   background-clip: text;
   -webkit-background-clip: text;
